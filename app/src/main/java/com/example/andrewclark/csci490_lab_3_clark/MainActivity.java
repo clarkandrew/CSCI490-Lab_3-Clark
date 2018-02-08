@@ -21,13 +21,7 @@ public class MainActivity extends AppCompatActivity {
         final ListView classSched = findViewById(R.id.class_schedule);
 
 
-        String[] classes = new String[] {
-                getString(R.string.ar1),
-                getString(R.string.ar2),
-                getString(R.string.ar3),
-                getString(R.string.ar4),
-                getString(R.string.ar5)
-        };
+        String[] classes = getResources().getStringArray(R.array.classes);
 
         ArrayAdapter<String> arrAdapt =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, classes);
@@ -41,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String item = ((TextView)view).getText().toString();
 
-                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), item, Toast.LENGTH_SHORT).show();
 
             }
         });
