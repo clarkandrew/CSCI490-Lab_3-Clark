@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         String[] classes = new String[] {
-                "CSCI-221",
-                "CSCI-490",
-                "Anthropology",
-                "History",
-                "Descrete Structures"
+                getString(R.string.ar1),
+                getString(R.string.ar2),
+                getString(R.string.ar3),
+                getString(R.string.ar4),
+                getString(R.string.ar5)
         };
 
         ArrayAdapter<String> arrAdapt =
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = ((TextView)view).getText().toString();
 
-                Toast.makeText(getBaseContext(), "Long Click: " + item, Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), getString(R.string.longclick) + item, Toast.LENGTH_LONG).show();
                 return false;
             }
         });
