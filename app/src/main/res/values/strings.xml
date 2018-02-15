@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CSCI490-Lab_3-Clark</string>
     <string name="longclick">Long Click:</string>
-  
+
 
     <string-array name="classes">
         <item>CSCI-221</item>
