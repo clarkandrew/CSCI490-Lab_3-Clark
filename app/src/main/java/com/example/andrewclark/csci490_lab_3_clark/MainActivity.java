@@ -1,13 +1,20 @@
 package com.example.andrewclark.csci490_lab_3_clark;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
+
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,15 +25,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
+        Course course;
+        ArrayList<Course> courses = new ArrayList();
+
+        course = new Course();
+        course.setCourseName("Anthropology");
+        course.setCourseNum("101");
+        course.setCourseProf("Quirko");
+        courses.add(course);
+
+        course = new Course();
+        course.setCourseName("CSCI");
+        course.setCourseNum("490");
+        course.setCourseProf("Briggs");
+        courses.add(course);
+
+
+
         final ListView classSched = findViewById(R.id.class_schedule);
 
+        CourseAdapter adapter = new CourseAdapter(this, courses);
 
-        String[] classes = getResources().getStringArray(R.array.classes);
-
-        ArrayAdapter<String> arrAdapt =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, classes);
-
-        classSched.setAdapter(arrAdapt);
+        classSched.setAdapter(adapter);
 
 
         classSched.setOnItemClickListener(new AdapterView.OnItemClickListener() {
